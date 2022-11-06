@@ -4,9 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>dashboard</title>
-  <!-- Plugin Javascript !-->
+
+ 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+   <!-- Plugin Javascript !-->
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -14,19 +17,21 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="View/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="View/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="View/dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins.  -->
   <link rel="stylesheet" href="View/dist/css/skins/_all-skins.min.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
  <!--  Body  !-->
-<body class="hold-transition skin-blue sidebar-mini ">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page ">
 <!-- Site wrapper -->
-<div class="wrapper">
-
 <?php 
+
+echo '<div class="wrapper">';
+
+if($_SESSION["loggIn"] && $_SESSIONp["loggedIn"] == "ok"){
+  
  include "modules/header.php";
  include "modules/sidebar.php";
  if(isset($_GET["route"])){
@@ -40,25 +45,25 @@
     $_GET["route"] == "sales-report" ||
     $_GET["route"] == "logout"){
       include "modules/".$_GET["route"].".php";
+    }else{
+      include "modules/404.php";
     }
  }
 
  include "modules/footer.php";
+
+ echo "</div>";
+
+}else{
+  include "modules/login.php";
+}
+
 ?>
 
   
-</div>
 
-<!-- jQuery 3 -->
-<script src="View/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="View/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="View/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="View/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="View/dist/js/adminlte.min.js"></script>
+
+
 
 <script src="View/js/template.js"></script>
 
