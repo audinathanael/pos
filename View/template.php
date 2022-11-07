@@ -5,33 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>dashboard</title>
 
- 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
    <!-- Plugin Javascript !-->
+
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="View/bower_components/font-awesome/css/font-awesome.min.css">
+
   <!-- Ionicons -->
   <link rel="stylesheet" href="View/bower_components/Ionicons/css/ionicons.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="View/dist/css/AdminLTE.css">
+
   <!-- AdminLTE Skins.  -->
   <link rel="stylesheet" href="View/dist/css/skins/_all-skins.min.css">
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
  <!--  Body  !-->
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page ">
-<!-- Site wrapper -->
+
 <?php 
 
-echo '<div class="wrapper">';
-
 if($_SESSION["loggIn"] && $_SESSIONp["loggedIn"] == "ok"){
-  
+  // Site wrapper 
+  echo '<div class="wrapper">';
+  // modules
  include "modules/header.php";
  include "modules/sidebar.php";
  if(isset($_GET["route"])){
@@ -48,22 +53,19 @@ if($_SESSION["loggIn"] && $_SESSIONp["loggedIn"] == "ok"){
     }else{
       include "modules/404.php";
     }
- }
+  }
 
  include "modules/footer.php";
 
  echo "</div>";
 
 }else{
+
   include "modules/login.php";
+  
 }
 
 ?>
-
-  
-
-
-
 
 <script src="View/js/template.js"></script>
 

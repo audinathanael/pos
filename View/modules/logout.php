@@ -1,7 +1,5 @@
 <?php 
 session_destroy();
 
-echo '<script>
-  window.location = "login";
-  </script>'
+echo '<script>window.location = "login";</script>'
 ?>
